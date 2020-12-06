@@ -1,4 +1,3 @@
-/*
 package Session5Package;
 
 import Session5Package.Pages.*;
@@ -7,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 
 public class SauceDemoPOMAdvancedProblem {
     WebDriver driver;
@@ -25,21 +25,19 @@ public class SauceDemoPOMAdvancedProblem {
         LogInPage3 logInPage = new LogInPage3(driver);
         logInPage.logIn(user,passwd);
 
+        // image handling for Sauce Labs Backpack product
         InventoryPage inventoryPage = new InventoryPage(driver);
+        WebElement imageUrlExpected= inventoryPage.getProductSrc();
         inventoryPage.productImageForHandling();
+        InventoryItemPage inventoryItemPage = new InventoryItemPage(driver);
+        WebElement imageUrlReturning= inventoryItemPage.getProductSrc();
 
-        if (driver.get().equals("Facebook - log in or sign up"))
-
+        if (imageUrlExpected.equals(imageUrlReturning))
         {
-
-            System.out.println("We are back to Facebook's homepage");
-
+            System.out.println("Image Handled");
         } else {
-
-            System.out.println("We are NOT at Facebook's homepage");
-
+            System.out.println("Image is not same");
         }
-
     }
 
     public static void main(String args[]) throws Exception {
@@ -47,4 +45,3 @@ public class SauceDemoPOMAdvancedProblem {
         test.SauceDemoAddCartAdvanced2();
     }
 }
-*/

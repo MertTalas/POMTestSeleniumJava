@@ -34,4 +34,8 @@ public class InventoryPage {
         WebElement productImage = driver.findElement(By.className("inventory_item_img"));
         productImage.click();
     }
+    public WebElement getProductSrc(){
+        WebElement productImageUrl=driver.findElement(By.xpath("//*[@class='inventory_item_img'][@src='./img/sauce-backpack-1200x1500.jpgWithGarbageOnItToBreakTheUrl']"));
+        return productImageUrl;
+    }
 }

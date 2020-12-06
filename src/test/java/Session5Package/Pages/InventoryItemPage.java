@@ -28,9 +28,9 @@ public class InventoryItemPage {
         proceedShoppingCart.click();
     }
 
-    public WebElement getProductName(){
-        WebElement productName=driver.findElement(By.className("inventory_details_name"));
-        return productName;
+    public WebElement getProductSrc(){
+        WebElement sauceLabsPackbackProductImageUrl=driver.findElement(By.xpath("//*[@class='inventory_details_img'][@src='./img/sauce-pullover-1200x1500.jpg']"));
+        return sauceLabsPackbackProductImageUrl;
     }
 
 }
