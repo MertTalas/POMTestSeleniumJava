@@ -5,7 +5,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.util.List;
@@ -17,7 +16,7 @@ public class SauceDemoPOMAdvancedTest {
     private String passwd= "secret_sauce";
 
     @Test
-    public void SauceDemoAddCartAdvanced() throws Exception {
+    public void SauceDemoAdvanced() throws Exception {
         System.setProperty("webdriver.chrome.driver", ".\\resources\\chromedriver.exe");
         driver = new ChromeDriver();
         driver.manage().window().maximize();
@@ -73,18 +72,18 @@ public class SauceDemoPOMAdvancedTest {
         shoppingCartPage.checkoutButtonClick();
 
         // complete and logout
-        CheckoutOnePage cosop=new CheckoutOnePage(driver);
-        cosop.continueTo("ali","veli","34");
+        CheckoutOnePage checkoutOnePage=new CheckoutOnePage(driver);
+        checkoutOnePage.continueTo("ali","veli","34");
 
-        CheckoutTwoPage costp=new CheckoutTwoPage(driver);
-        costp.clickFinish();
+        CheckoutTwoPage checkoutTwoPage=new CheckoutTwoPage(driver);
+        checkoutTwoPage.clickFinish();
 
         MenuPage menuPage = new MenuPage(driver);
         menuPage.logOut();
     }
     public static void main(String args[]) throws Exception {
         SauceDemoPOMAdvancedTest test = new SauceDemoPOMAdvancedTest();
-        test.SauceDemoAddCartAdvanced();
+        test.SauceDemoAdvanced();
     }
 
 }

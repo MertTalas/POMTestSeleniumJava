@@ -4,14 +4,11 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import java.util.List;
-
 public class InventoryItemPage {
     WebDriver driver;
 
     public InventoryItemPage(WebDriver browserDriver) {
         driver = browserDriver;
-
     }
     public void addtoCartButtonClick (){
         WebElement addtToCartButton =  driver.findElement(By.xpath("//*[contains(@class,'btn_primary btn_inventory')]"));

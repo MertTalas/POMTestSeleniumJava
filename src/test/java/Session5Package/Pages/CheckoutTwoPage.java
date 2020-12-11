@@ -9,7 +9,6 @@ public class CheckoutTwoPage {
 
     public CheckoutTwoPage(WebDriver driver){
         this.driver=driver;
-
     }
     public void clickFinish(){
         WebElement finishButton=driver.findElement(By.xpath("//*[contains(@class,'btn_action cart_button')]"));

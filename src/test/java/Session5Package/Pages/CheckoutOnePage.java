@@ -30,7 +30,6 @@ public class CheckoutOnePage {
         WebElement postalCodeTextBox = driver.findElement(postalCodeLocator);
         postalCodeTextBox.sendKeys(postalCode);
         return this;
-
     }
 
     public void continueTo(String firstName, String lastName, String postalCode) {

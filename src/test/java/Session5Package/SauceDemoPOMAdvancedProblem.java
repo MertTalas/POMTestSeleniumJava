@@ -6,7 +6,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
-import org.testng.asserts.SoftAssert;
 
 public class SauceDemoPOMAdvancedProblem {
     WebDriver driver;
@@ -15,7 +14,7 @@ public class SauceDemoPOMAdvancedProblem {
     private String passwd = "secret_sauce";
 
     @Test
-    public void SauceDemoAddCartAdvanced2() throws Exception {
+    public void SauceDemoAdvanced() throws Exception {
         System.setProperty("webdriver.chrome.driver", ".\\resources\\chromedriver.exe");
         driver = new ChromeDriver();
         driver.manage().window().maximize();
@@ -42,6 +41,6 @@ public class SauceDemoPOMAdvancedProblem {
 
     public static void main(String args[]) throws Exception {
         SauceDemoPOMAdvancedProblem test = new SauceDemoPOMAdvancedProblem();
-        test.SauceDemoAddCartAdvanced2();
+        test.SauceDemoAdvanced();
     }
 }

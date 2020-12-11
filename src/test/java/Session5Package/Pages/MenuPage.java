@@ -15,7 +15,6 @@ public class MenuPage {
         driver = browserDriver;
         WebElement menu = driver.findElement(By.cssSelector("div.bm-burger-button"));
         menu.click();
-
     }
     public void logOut (){
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);

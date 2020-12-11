@@ -12,7 +12,6 @@ public class InventoryPage {
 
     public InventoryPage(WebDriver browserDriver) {
         driver = browserDriver;
-
     }
     public List <WebElement> getProductNameLinks(){
         List<WebElement> productLinks =  driver.findElements(By.className("inventory_item_name"));

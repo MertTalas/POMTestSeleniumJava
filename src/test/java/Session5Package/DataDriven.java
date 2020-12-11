@@ -9,6 +9,7 @@ import org.testng.annotations.Test;
 public class DataDriven {
     WebDriver driver;
 
+    // unsuccessful login attempts combination
     @Test(dataProviderClass = SignInDP.class, dataProvider = "SignInProvider")
     public void signInDPClass(String username, String pwd, boolean success) throws Exception {
         System.setProperty("webdriver.chrome.driver", ".\\resources\\chromedriver.exe");
