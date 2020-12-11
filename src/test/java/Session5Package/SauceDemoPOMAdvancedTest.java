@@ -50,23 +50,23 @@ public class SauceDemoPOMAdvancedTest {
 
         // check the items on that list are correct
         ShoppingCartPage shoppingCartPage = new ShoppingCartPage(driver);
-        /*List <WebElement> nameOfItems = shoppingCartPage.getNamesofItems();
-        int i=0;
-        while(i<nameOfItems.size()){ //DÖNGÜ 1 KEZ DÖNÜYOR NEDEN?
-            System.out.println(nameOfItems.get(i).getText());
-            String expected = nameOfItems.get(i).getText();
-            nameOfItems.get(i).click();
+        List <WebElement> nameOfItems = shoppingCartPage.getNameofItems();
+        int count=0;
+        while(count<nameOfItems.size()){
+            nameOfItems = shoppingCartPage.getNameofItems();
+            WebElement current=nameOfItems.get(count);
+            String expected = current.getText();
+            current.click();
             String nameOfItemInInventoryItem = inventoryItemPage.getProductName().getText();
-            System.out.println("debugger");
             if (expected.equals(nameOfItemInInventoryItem))
             {
                 System.out.println("item is same");
             } else {
                 System.out.println("item is not same");
             }
-            i++;
+            count++;
             inventoryItemPage.backToInventoryButtonClick();
-        }*/
+        }
 
         // proceed to checkout
         shoppingCartPage.checkoutButtonClick();
