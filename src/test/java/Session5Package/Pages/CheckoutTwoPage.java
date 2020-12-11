@@ -7,10 +7,13 @@ import org.openqa.selenium.WebElement;
 public class CheckoutTwoPage {
     WebDriver driver;
 
-    public CheckoutTwoPage(WebDriver browserDriver) {
-        driver = browserDriver;
-        WebElement checkouttwopage = driver.findElement(By.xpath("//*[contains(@class,'btn_primary cart_button')]"));
-        checkouttwopage.click();
+    public CheckoutTwoPage(WebDriver driver){
+        this.driver=driver;
+
+    }
+    public void clickFinish(){
+        WebElement finishButton=driver.findElement(By.xpath("//*[contains(@class,'btn_action cart_button')]"));
+        finishButton.click();
     }
 
 }

@@ -32,5 +32,9 @@ public class InventoryItemPage {
         WebElement sauceLabsPackbackProductImageUrl=driver.findElement(By.xpath("//*[@class='inventory_details_img'][@src='./img/sauce-pullover-1200x1500.jpg']"));
         return sauceLabsPackbackProductImageUrl;
     }
+    public WebElement getProductName(){
+        WebElement productName=driver.findElement(By.xpath("//*[@class='inventory_details_name']"));
+        return productName;
+    }
 
 }

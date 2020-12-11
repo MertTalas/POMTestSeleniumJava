@@ -19,9 +19,9 @@ public class ShoppingCartPage {
         return numberofItems.size();
     }
 
-    public List<WebElement> getNameofItems () {
-        List<WebElement> nameofItems =  driver.findElements(By.className("inventory_item_name"));
-        return nameofItems;
+    public List<WebElement> getNamesofItems () {
+        List<WebElement> namesofItems =  driver.findElements(By.xpath("//*[@class='inventory_item_name']"));
+        return namesofItems;
     }
     public void inventoryItemPageByNameClick(){
         WebElement inventoryItemPageByName =  driver.findElement(By.className("inventory_item_name"));

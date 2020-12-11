@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.util.List;
@@ -50,29 +51,34 @@ public class SauceDemoPOMAdvancedTest {
 
         // check the items on that list are correct
         ShoppingCartPage shoppingCartPage = new ShoppingCartPage(driver);
-        /*shoppingCartPage.getClass();
-        List <WebElement> nameOfItems = shoppingCartPage.getNameofItems();
-        for(int i=0; i<nameOfItems.size();i++){
-            nameOfItems.get(i).click();
-            WebElement nameOfItemInInventoryItem = inventoryItemPage.getProductName();
+        /*List <WebElement> nameOfItems = shoppingCartPage.getNamesofItems();
+        int i=0;
+        while(i<nameOfItems.size()){ //DÖNGÜ 1 KEZ DÖNÜYOR NEDEN?
+            System.out.println(nameOfItems.get(i).getText());
             String expected = nameOfItems.get(i).getText();
-            Assert.assertEquals(expected,nameOfItemInInventoryItem);
-            inventoryItemPage.proceedShoppingCartClick();
+            nameOfItems.get(i).click();
+            String nameOfItemInInventoryItem = inventoryItemPage.getProductName().getText();
+            System.out.println("debugger");
+            if (expected.equals(nameOfItemInInventoryItem))
+            {
+                System.out.println("item is same");
+            } else {
+                System.out.println("item is not same");
+            }
+            i++;
+            inventoryItemPage.backToInventoryButtonClick();
         }*/
 
         // proceed to checkout
         shoppingCartPage.checkoutButtonClick();
 
         // complete and logout
-        /*CheckoutOnePage checkoutOnePage = new CheckoutOnePage(driver);
-        WebElement firstName = checkoutOnePage.getFirstName();
-        WebElement lastName = checkoutOnePage.getLastName();
-        WebElement postalCode = checkoutOnePage.getPostalCode();
+        CheckoutOnePage cosop=new CheckoutOnePage(driver);
+        cosop.continueTo("ali","veli","34");
 
-        if (!firstName.getAttribute("value").equals("") && !lastName.getAttribute("value").equals("")
-        && !postalCode.getAttribute("value").equals("")) {
-            checkoutOnePage.continueButtonClick();
-        }*/
+        CheckoutTwoPage costp=new CheckoutTwoPage(driver);
+        costp.clickFinish();
+
         MenuPage menuPage = new MenuPage(driver);
         menuPage.logOut();
     }

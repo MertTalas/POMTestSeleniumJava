@@ -6,30 +6,38 @@ import org.openqa.selenium.WebElement;
 
 public class CheckoutOnePage {
     WebDriver driver;
+    private By firstNameLocator = By.id("first-name");
+    private By lastNameLocator = By.id("last-name");
+    private By postalCodeLocator = By.id("postal-code");
 
-    public CheckoutOnePage(WebDriver browserDriver) {
-        driver = browserDriver;
-        WebElement checkoutOnePage = driver.findElement(By.xpath("//*[contains(@class,'btn_action checkout_button')]"));
-        checkoutOnePage.click();
+    public CheckoutOnePage(WebDriver driver) {
+        this.driver = driver;
     }
 
-    public WebElement getFirstName(){
-        WebElement firstName = driver.findElement(By.xpath("//*[@class='checkout_info'][@id='first-name']"));
-        return firstName;
+    private CheckoutOnePage setFirstName(String firstName) {
+        WebElement firstNameTextBox = driver.findElement(firstNameLocator);
+        firstNameTextBox.sendKeys(firstName);
+        return this;
     }
 
-    public WebElement getLastName(){
-        WebElement lastName = driver.findElement(By.xpath("//*[@class='checkout_info'][@id='last-name']"));
-        return lastName;
+    private CheckoutOnePage setLastName(String lastName) {
+        WebElement lastNameTextBox = driver.findElement(lastNameLocator);
+        lastNameTextBox.sendKeys(lastName);
+        return this;
     }
 
-    public WebElement getPostalCode(){
-        WebElement postalCode = driver.findElement(By.xpath("//*[@class='checkout_info'][@id='postal-code']"));
-        return postalCode;
+    private CheckoutOnePage setPostalCode(String postalCode) {
+        WebElement postalCodeTextBox = driver.findElement(postalCodeLocator);
+        postalCodeTextBox.sendKeys(postalCode);
+        return this;
+
     }
 
-    public void continueButtonClick (){
-        WebElement continueButton =  driver.findElement(By.xpath("//*[contains(@class,'btn_primary cart_button')]"));
-        continueButton.click();
+    public void continueTo(String firstName, String lastName, String postalCode) {
+        WebElement contunieButton = driver.findElement(By.xpath("//*[contains(@class,'btn_primary cart_button')]"));
+        setFirstName(firstName);
+        setLastName(lastName);
+        setPostalCode(postalCode);
+        contunieButton.click();
     }
 }
